@@ -11,12 +11,15 @@ private:
 	int width, height;
 
 public:
-	std::vector<std::vector<Colour>> texture;
+	//std::vector<std::vector<Colour>> texture;
+	Colour* texture = nullptr;
+	int pitch = 0;
 
 	Window(const char* title, int x, int y, int width, int height, Uint32 flags);
 	~Window();
 	int Width();
 	int Height();
-	int UpdateTexture();
-
+	int LockTexture();
+	int UnlockTexture();
+	int DrawTexture();
 };
