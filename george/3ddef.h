@@ -23,3 +23,8 @@ public:
 
 ang operator+(const ang& a1, const ang& a2);
 ang operator-(const ang& a1, const ang& a2);
+
+class camera : public ang, public pos {
+public:
+	double fov;
+};
