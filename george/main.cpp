@@ -17,8 +17,8 @@ int main(int argc, char* argv[])
 	
 	window.LockTexture();
 
-	camera cam{ 90.0, pos{}, ang{}};
-	sphere sph{ 20, pos{0, 50, 0}, ang{} };
+	camera cam{ 90.0, vec3{}, dir3{}};
+	sphere sph{ 20, vec3{0, 50, 0}, dir3{} };
 
 	int height = window.Height();
 	for (int w = 0; w < window.Width(); w++) {

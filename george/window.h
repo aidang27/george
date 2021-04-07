@@ -11,7 +11,6 @@ private:
 	int width, height;
 
 public:
-	//std::vector<std::vector<Colour>> texture;
 	Colour* texture = nullptr;
 	int pitch = 0;
 

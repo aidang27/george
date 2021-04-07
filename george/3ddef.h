@@ -2,31 +2,31 @@
 #include <cmath>
 #include <algorithm>
 
-class pos {
+class vec3 {
 public:
 	double x, y, z;
 
-	pos(double x = 0.0, double y = 0.0, double z = 0.0);
-	double dist(pos& point);
+	vec3(double x = 0.0, double y = 0.0, double z = 0.0);
+	double dist(vec3& point);
 };
 
-pos operator+(const pos& p1, const pos& p2);
-pos operator-(const pos& p1, const pos& p2);
+vec3 operator+(const vec3& p1, const vec3& p2);
+vec3 operator-(const vec3& p1, const vec3& p2);
 
 
-class ang {
+class dir3 {
 public:
-	double p, y, r;
+	double x, y, z;
 
-	ang(double p = 0.0, double y = 0.0, double r = 0.0);
+	dir3(double x = 0.0, double y = 0.0, double z = 0.0);
 };
 
-ang operator+(const ang& a1, const ang& a2);
-ang operator-(const ang& a1, const ang& a2);
+dir3 operator+(const dir3& p1, const dir3& p2);
+dir3 operator-(const dir3& p1, const dir3& p2);
 
-class camera : public ang, public pos {
+class camera : public dir3, public vec3 {
 public:
 	double fov;
 
-	camera(double fov, pos position, ang angle);
+	camera(double fov, vec3 position, dir3 direction);
 };

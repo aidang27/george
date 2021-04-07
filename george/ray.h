@@ -4,5 +4,5 @@
 #include "shape.h"
 #include <vector>
 
-double closestshape(pos& position, std::vector<shape>& list);
-Colour castray(ang& angle, pos& position);
+double closestshape(vec3& position, std::vector<shape>& list);
+Colour castray(dir3& direction, vec3& position);
