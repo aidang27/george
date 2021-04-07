@@ -88,11 +88,15 @@
   <ItemGroup>
     <ClCompile Include="3ddef.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ray.cpp" />
+    <ClCompile Include="shape.cpp" />
     <ClCompile Include="window.cpp" />
     <ClCompile Include="window.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="3ddef.h" />
+    <ClInclude Include="ray.h" />
+    <ClInclude Include="shape.h" />
     <ClInclude Include="utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
