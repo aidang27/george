@@ -45,3 +45,9 @@ int Window::DrawTexture() {
 	SDL_RenderPresent(p_renderer);
 	return 0;
 }
+
+int Window::ClearTexture() {
+	SDL_SetRenderDrawColor(p_renderer, 0, 0, 0, 0);
+	SDL_RenderClear(p_renderer);
+	return 0;
+}

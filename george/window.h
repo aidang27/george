@@ -21,4 +21,5 @@ public:
 	int LockTexture();
 	int UnlockTexture();
 	int DrawTexture();
+	int ClearTexture();
 };

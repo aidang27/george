@@ -16,6 +16,6 @@ double shape::distance(vec3& postion) {
 	return 0.0;
 }
 
-double sphere::distance(vec3& position) {
-	return dist(position) - radius;
+double sphere::distance(vec3& position){
+	return this->dist(position) - radius;
 }

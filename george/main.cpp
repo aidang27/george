@@ -6,6 +6,7 @@
 #include <chrono>
 #include "3ddef.h"
 #include "shape.h"
+#include "ray.h"
 
 using namespace std::chrono;
 
@@ -14,19 +15,26 @@ using namespace std::chrono;
 int main(int argc, char* argv[]) 
 {
 	Window window("george", 100, 100, 500, 500, NULL);
-	
+	window.ClearTexture();
 	window.LockTexture();
 
-	camera cam{ 90.0, vec3{}, dir3{}};
-	sphere sph{ 20, vec3{0, 50, 0}, dir3{} };
-
+	camera cam{ 90.0, window.texture, window.Width(), window.Height(), vec3{}, dir3{} };
+	int width = window.Width();
 	int height = window.Height();
-	for (int w = 0; w < window.Width(); w++) {
-		for (int h = 0; h < window.Height(); h++) {
-			//window.texture[h * height + w] = Colour{ 0,0,0,0 };
 
+
+	auto start = high_resolution_clock::now();
+	for (int x = 0; x < width -1; x++) {
+		for (int y = 0; y < height -1; y++) {
+			window.texture[height * y + x] = castray(cam.camerarays[x][y], cam);
 		}
 	}
+
+	auto end = high_resolution_clock::now();
+	auto duration = duration_cast<milliseconds>(end - start);
+
+	std::cout << duration.count() << " done";
+
 
 
 	window.UnlockTexture();

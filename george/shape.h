@@ -11,5 +11,5 @@ class sphere : public shape {
 public:
 	double radius;
 	sphere(double radius, vec3 position, dir3 direction);
-	virtual double distance(vec3& position);
+	double distance(vec3& position) override;
 };

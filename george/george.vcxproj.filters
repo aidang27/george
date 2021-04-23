@@ -33,6 +33,9 @@
     <ClCompile Include="shape.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="utils.h">
@@ -45,6 +48,9 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="shape.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vec4.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
