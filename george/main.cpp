@@ -18,7 +18,7 @@ int main(int argc, char* argv[])
 	window.ClearTexture();
 	window.LockTexture();
 
-	camera cam{ 90.0, window.texture, window.Width(), window.Height(), vec3{}, dir3{} };
+	camera cam{ 110.0, window.texture, window.Width(), window.Height(), vec3{}, dir3{} };
 	int width = window.Width();
 	int height = window.Height();
 

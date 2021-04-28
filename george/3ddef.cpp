@@ -10,7 +10,7 @@ vec3::vec3(double x, double y, double z)
 }
 
 double vec3::dist(vec3& point) {
-	return hypot(hypot(x - point.x, y - point.y), z - point.z);
+	return sqrt(pow(x - point.x, 2) + pow(y - point.y, 2) + pow(z - point.z, 2));
 }
 
 vec3 operator+(const vec3& p1, const vec3& p2) {
