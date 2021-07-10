@@ -1,12 +1,12 @@
 #include "shape.h"
 
-shape::shape(vec3 position, dir3 angle)
-	: vec3{position.x, position.y, position.z}
-	, dir3{angle.x, angle.y, angle.z}
+shape::shape(vec3 position, vec3 direction)
+	: pos{position.x, position.y, position.z}
+	, dir{direction.x, direction.y, direction.z}
 {
 }
 
-sphere::sphere(double radius, vec3 position, dir3 direction)
+sphere::sphere(double radius, vec3 position, vec3 direction)
 	: shape{ position, direction }
 	, radius(radius)
 {
@@ -17,5 +17,5 @@ double shape::distance(vec3& postion) {
 }
 
 double sphere::distance(vec3& position){
-	return this->dist(position) - radius;
+	return pos.dist(position) - radius;
 }

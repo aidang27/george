@@ -1,7 +1,8 @@
 #include "ray.h"
 
-sphere gaming{ 20, vec3{0, 10, -25}, dir3{} };
-std::vector<shape*> shapes{ &gaming };
+sphere gaming{ 20, vec3{0, 60, -250}, vec3{} };
+sphere burger{ 40, vec3{0, -60, -250}, vec3{} };
+std::vector<shape*> shapes{ &gaming, &burger };
 
 double closestshape(vec3& position, std::vector<shape*>& list) {
 	double dist = list[0]->distance(position);
@@ -15,7 +16,7 @@ double closestshape(vec3& position, std::vector<shape*>& list) {
 	return dist;
 }
 
-Colour castray(vec3& direction, vec3& position){
+Colour32 castray(vec3& direction, vec3& position){
 	double len = closestshape(position, shapes);
 	int steps = 0;
 
@@ -29,9 +30,9 @@ Colour castray(vec3& direction, vec3& position){
 		len = closestshape(ray, shapes);
 
 		if (len < 0.0000001) {
-			return Colour{ 255,255,255, 255 };
+			return Colour{1.0, 1.0, 1.0, 1.0}.to_c32();
 		}
 	}
 
-	return Colour{ 0,0,0,0 };
+	return Colour32{ 0,0,0,0 };
 }

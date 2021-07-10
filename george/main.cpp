@@ -18,22 +18,25 @@ int main(int argc, char* argv[])
 	window.ClearTexture();
 	window.LockTexture();
 
-	camera cam{ 110.0, window.texture, window.Width(), window.Height(), vec3{}, dir3{} };
+	camera cam{ 35.0, window.texture, window.Width(), window.Height(), vec3{}, vec3{} };
 	int width = window.Width();
 	int height = window.Height();
 
 
 	auto start = high_resolution_clock::now();
-	for (int x = 0; x < width -1; x++) {
-		for (int y = 0; y < height -1; y++) {
-			window.texture[height * y + x] = castray(cam.camerarays[x][y], cam);
+
+	for (int x = 0; x < width; x++) {
+		for (int y = 0; y < height; y++) {
+			window.texture[height * y + x] =  castray(cam.camerarays[x][y], cam.pos);
 		}
 	}
 
 	auto end = high_resolution_clock::now();
 	auto duration = duration_cast<milliseconds>(end - start);
 
-	std::cout << duration.count() << " done";
+	std::cout << duration.count() << " done\n";
+	std::cout << sizeof(Colour32) << "\n";
+	std::cout << sizeof(SDL_Colour) << "\n";
 
 
 
@@ -42,4 +45,6 @@ int main(int argc, char* argv[])
 
 	Sleep(10000);
 	return 0;
+
+	
 }

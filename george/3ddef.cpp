@@ -22,30 +22,15 @@ vec3 operator-(const vec3& p1, const vec3& p2) {
 }
 
 void vec3::normalise() {
-	float length_of_v = sqrt((x * x) + (y * y) + (z * z));
-	x = x / length_of_v;
-	y = y / length_of_v;
-	z = z / length_of_v;
+	float vector_len = sqrt((x * x) + (y * y) + (z * z));
+	x /= vector_len;
+	y /= vector_len;
+	z /= vector_len;
 }
 
-dir3::dir3(double p, double y, double r)
-	: x(p)
-	, y(y)
-	, z(r)
-{
-}
-
-dir3 operator+(const dir3& p1, const dir3& p2) {
-	return dir3{ p1.x + p2.x, p1.y + p2.y, p1.z + p2.z };
-}
-
-dir3 operator-(const dir3& p1, const dir3& p2) {
-	return dir3{ p1.x - p2.x, p1.y - p2.y, p1.z - p2.z };
-}
-
-camera::camera(double fov, Colour* texture, int width, int height, vec3 position = vec3{}, dir3 direction = dir3{})
-	: dir3{ direction.x, direction.y, direction.z }
-	, vec3{ position.x, position.y, position.z }
+camera::camera(double fov, Colour32* texture, int width, int height, vec3 position = vec3{}, vec3 direction = vec3{})
+	: dir{ direction.x, direction.y, direction.z }
+	, pos{ position.x, position.y, position.z }
 	, fov{ fov }
 	, width(width)
 	, height(height)

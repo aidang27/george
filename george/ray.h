@@ -7,4 +7,4 @@
 
 
 double closestshape(vec3& position, std::vector<shape*>& list);
-Colour castray(vec3& direction, vec3& position);
+Colour32 castray(vec3& direction, vec3& position);
